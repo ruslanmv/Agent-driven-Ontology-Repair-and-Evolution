@@ -102,11 +102,11 @@ To run this notebook, you will need to set up your Python environment and provid
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/ruslanmv/ADORE-framework.git
-    cd ADORE-framework
+    git clone https://github.com/ruslanmv/Agent-driven-Ontology-Repair-and-Evolution.git
+    cd Agent-driven-Ontology-Repair-and-Evolution
     ```
 
-    (Replace `ruslanmv/ADORE-framework.git` with the actual repository URL)
+    (Replace `ruslanmv/Agent-driven-Ontology-Repair-and-Evolution.git` with the actual repository URL)
 
 2.  **Create a virtual environment (recommended):**
 
