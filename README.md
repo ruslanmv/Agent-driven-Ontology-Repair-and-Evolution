@@ -106,7 +106,6 @@ To run this notebook, you will need to set up your Python environment and provid
     cd Agent-driven-Ontology-Repair-and-Evolution
     ```
 
-    (Replace `ruslanmv/Agent-driven-Ontology-Repair-and-Evolution.git` with the actual repository URL)
 
 2.  **Create a virtual environment (recommended):**
 
@@ -181,7 +180,7 @@ If you use this code or framework in your research, please cite our paper:
 @article{monti2024adore,
   title={A Design Pattern for Reflective, Agent-Guided Ontology Evolution from LLM-Induced Epistemic Anomalies},
   author={Monti, Marco and Kutz, Oliver and Troquard, Nicolas and Vsevolodovna, Ruslan Idelfonso Magaña},
-  journal={arXiv preprint arXiv:XXXX.XXXXX}, % Replace with actual arXiv ID or publication details
+  journal={arXiv preprint arXiv:XXXX.XXXXX},
   year={2024}
 }
 ```
