@@ -1,180 +1,313 @@
-# ADORE: Agent-Driven Ontology Repair and Evolution
+<div align="center">
 
-This repository contains a demo implementation for the research paper:
+# 🧠 ADORE
 
-**"A Design Pattern for Reflective, Agent-Guided Ontology Evolution from LLM-Induced Epistemic Anomalies"**
-*Marco Monti, Oliver Kutz, Nicolas Troquard and Ruslan Idelfonso Magaña Vsevolodovna*
-*Free University of Bozen-Bolzano (UNIBZ), IBM, Gran Sasso Science Institute (GSSI), IBM Client Innovation Center Italy*
+## Agent-Driven Ontology Repair and Evolution
 
-## Abstract
+**The Future of Intelligent Knowledge Base Management**
 
-The integration of Large Language Models (LLMs) with formal ontologies presents a significant opportunity for knowledge base enrichment, yet concurrently introduces substantial challenges in maintaining logical consistency and trustworthiness. Current approaches often struggle with the semantic richness versus logical rigor dichotomy, or lack transparent mechanisms for resolving LLM-induced inconsistencies. This position paper introduces **ADORE (Agent-driven Ontology Repair and Evolution)**, a novel conceptual framework designed to address these challenges. We posit that a principled approach to LLM-ontology co-evolution requires a synergistic combination of: (1) treating inconsistencies not as mere errors but as triggers for principled ontology evolution; (2) employing formal axiom weakening as a primary, information-preserving repair mechanism; (3) orchestrating the process through a multi-agent system (MAS) that delineates specialized roles; and (4) embedding Human-in-the-Loop (HITL) oversight and comprehensive explainability (XAI) via systematic meta-knowledge logging. We argue that ADORE offers a more robust, transparent, and adaptable paradigm for evolving formal knowledge bases in collaboration with LLMs, paving the way for more trustworthy and semantically coherent neurosymbolic AI systems. We outline the core components of ADORE, illustrate its conceptual feasibility through scenarios, and discuss its potential to foster a new generation of dynamic knowledge co-evolution systems.
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org)
+[![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
+[![Type checked: mypy](https://img.shields.io/badge/type%20checked-mypy-blue)](http://mypy-lang.org/)
+[![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?logo=github-actions&logoColor=white)](https://github.com/features/actions)
 
-## Keywords
+[Features](#-key-features) • [Quick Start](#-quick-start) • [Documentation](#-documentation) • [Examples](#-examples) • [Contributing](#-contributing)
 
-Ontology Evolution, Ontology Repair, Axiom Weakening, Large Language Models (LLMs), LLM-induced Inconsistencies, Epistemic Anomalies, Agentic AI, Multi-Agent Systems (MAS), Human-in-the-Loop (HITL), Explainable AI (XAI), Description Logic Reasoning, Hybrid Knowledge Architectures, Ontology Design Patterns, Semantic Richness, Knowledge Co-evolution.
+</div>
 
------
+---
 
-## What Does ADORE Stand For?
+## 🌟 The Why
 
-  * **A**gent-**D**riven: Specialized AI agents collaborate to deliberate and generate ontology repair proposals.
-  * **O**ntology **R**epair: Handles logical inconsistencies using formal axiom weakening, guided by agent deliberation and human oversight.
-  * **O**ntology **E**volution: Allows ontologies to adapt semantically over time, especially in response to novel or emerging concepts identified through inconsistencies.
+Traditional ontology management is a bottleneck. Manual maintenance is slow, error-prone, and doesn't scale. Large Language Models (LLMs) can suggest new knowledge, but they often introduce **inconsistencies** that break formal reasoning.
 
------
+**ADORE solves this.**
 
-## Notebook Overview: `ADORE_Demo.ipynb`
+ADORE is a revolutionary framework that orchestrates specialized AI agents to:
+- ✅ **Propose** new knowledge using LLMs
+- ✅ **Validate** axioms for domain correctness and logical coherence
+- ✅ **Detect** inconsistencies automatically
+- ✅ **Repair** ontologies through principled axiom weakening
+- ✅ **Log** every decision for full explainability (XAI)
+- ✅ **Integrate** human oversight at critical decision points (HITL)
 
-This Jupyter Notebook provides a practical demonstration of the ADORE framework. It showcases a single cycle of the ADORE process, illustrating how an LLM-proposed axiom is assessed, checked for consistency, and potentially repaired or integrated into a foundational "Pneumonia" ontology.
+> **ADORE transforms ontology evolution from a manual chore into an intelligent, automated, and transparent process.**
 
-### Program Workflow: Axiom Discovery and Ontology Evolution (ADORE)
+---
 
-The ADORE program operates as a sophisticated, multi-step process designed to intelligently propose, evaluate, and integrate new knowledge (axioms) into an existing **ontology** (a structured representation of knowledge). Imagine it as a team of experts collaborating to refine a medical encyclopedia.
+## 🎯 Key Features
 
-Here's a simplified flow:
+### 🔬 **Research-Backed Framework**
+Built on cutting-edge research combining Description Logic reasoning, LLMs, and multi-agent systems. Published methodology ensures trustworthy, reproducible results.
 
-1.  **Environment Setup and Ontology Initialization:** First, the program gets ready by importing all the necessary tools (like **Owlready2** for handling the ontology and **LangGraph** for managing the workflow). It then loads or creates a starting ontology, which in this case, is a basic **Pneumonia ontology** containing initial facts about the disease. This also includes setting up a mock system to use OpenAI's powerful language models, acting as a stand-in for other AI services.
+### 🤖 **Multi-Agent Architecture**
+Eight specialized agents collaborate seamlessly:
+- **LLM Generator**: Proposes new axioms
+- **Domain Expert**: Assesses real-world plausibility
+- **Linguistic Insight**: Validates syntax
+- **Consistency Guard**: Detects logical conflicts
+- **Axiom Weakening**: Repairs inconsistencies
+- **HITL Stages**: Strategic human checkpoints
+- **Meta-Knowledge**: Logs and consolidates results
 
-2.  **Axiom Proposal (LLM Generator):** An **AI (Large Language Model) agent** steps in, acting as a creative thinker. It analyzes the current ontology and proposes a *new axiom* – a single, formal statement of knowledge – in a specific logical format. For example, it might suggest that "Pneumonia can be caused by NovelVirusX."
+### ⚡ **Production-Ready Engineering**
+- **Lightning-fast** dependency management with `uv`
+- **Beautiful CLI** with `Typer` and `Rich`
+- **Type-safe** with 100% type hints and `Pydantic V2`
+- **Observable** with structured JSON logging
+- **Testable** with comprehensive pytest suite
+- **Containerized** with multi-stage Docker builds
+- **Scalable** async-ready architecture
 
-3.  **Axiom Assessment (Domain Expert & Linguistic Insight Agents):** The proposed axiom then goes through a review process by two specialized agents:
+### 📊 **Full Explainability (XAI)**
+Every decision, assessment, and repair is logged in structured JSON format. Audit trails ensure transparency and enable debugging complex knowledge evolution scenarios.
 
-      * The **Domain Expert Agent** evaluates the axiom's **medical plausibility** (e.g., "Does it make sense from a medical perspective?").
-      * The **Linguistic Insight Agent** checks its **syntactic correctness** and logical structure (e.g., "Is it written in the correct logical language?").
+---
 
-4.  **Consistency Check (Consistency Guard Agent):** Next, a crucial step: the **Consistency Guard Agent** takes the proposed axiom and temporarily adds it to a *copy* of the current ontology. It then runs a **reasoner** (a tool that checks for logical contradictions). If the new axiom creates a contradiction with existing knowledge in the ontology, it's flagged as inconsistent.
-
-5.  **Human Decision Stage 1 (HITL Stage 1):** A **Human-in-the-Loop (HITL)** agent steps in to make a strategic decision. If the proposed axiom is consistent, the human (simulated here) might choose to "Accept Axiom" (though the actual addition happens later). If it's *inconsistent*, the human decides on "Ontology Evolution," indicating that a repair process is needed.
-
-6.  **Axiom Weakening/Repair (Axiom Weakening Agent):** If an inconsistency was detected, the **Axiom Weakening Agent** attempts to fix it. This involves modifying or "weakening" existing axioms in the ontology or even the proposed axiom itself to resolve the contradiction while trying to retain as much useful information as possible. It proposes a "repaired" version of the ontology.
-
-7.  **Human Decision Stage 2 (HITL Stage 2):** Another **Human-in-the-Loop** stage occurs. If a repair proposal was made, the human (simulated) reviews it and decides whether to accept the repaired ontology as the new, updated knowledge base.
-
-8.  **Knowledge Consolidation & Logging (Meta-Knowledge Agent):** Finally, the **Meta-Knowledge Agent** takes the chosen, consistent version of the ontology (either the one with the accepted axiom or the repaired one) and makes it the *new active ontology*. It also meticulously records all the steps and decisions made during this cycle, creating a detailed log of the knowledge evolution process.
-
-This entire cycle is designed to allow the system to continuously learn and expand its knowledge base in a logically sound and human-supervised manner.
-
-### ADORE Workflow Diagram
-
-The following Mermaid diagram provides a visual representation of the ADORE system's flow, illustrating how each agent interacts in this iterative process of knowledge management.
-
-```mermaid
-graph TD
-    LLMGen --> DEA
-    DEA --> LIA
-    LIA --> CGA
-    CGA --> HITL1
-    HITL1 -- Ontology Evolution --> AWEA
-    HITL1 -- Accept Axiom --> MKA
-    AWEA --> HITL2
-    HITL2 --> MKA
-    MKA --> END
-```
-
-This graph showcases the dynamic interplay between the various components:
-
-  * **LLMGen (LLM Generator Agent)**: The **starting point** of the workflow, where the AI proposes new axioms to expand the ontology's knowledge.
-  * **DEA (Domain Expert Agent)**: Evaluates the **real-world plausibility** of the proposed axiom, mimicking a subject-matter expert's judgment.
-  * **LIA (Linguistic Insight Agent)**: Assesses the **formal correctness and syntactic coherence** of the axiom in Description Logic.
-  * **CGA (Consistency Guard Agent)**: A **critical checkpoint** that verifies the axiom's compatibility with the existing ontology, flagging any logical inconsistencies.
-  * **HITL1 (Human-in-the-Loop Stage 1)**: The **initial human decision point**, determining whether to proceed with ontology evolution (repair) if inconsistencies are found or to accept the axiom if it's consistent.
-  * **AWEA (Axiom Weakening Agent)**: Engages when inconsistencies are detected, **proposing modifications** to resolve contradictions and restore logical soundness.
-  * **HITL2 (Human-in-the-Loop Stage 2)**: The **secondary human review**, where proposed repairs from AWEA are evaluated and chosen for integration.
-  * **MKA (Meta-Knowledge Agent)**: The **final consolidation stage**, responsible for updating the active ontology with accepted changes and logging the entire cycle for future reference.
-  * **END**: Signifies the **completion of one ADORE cycle**, leaving the ontology updated and ready for continuous refinement.
-
-This structured workflow ensures that any new knowledge introduced into the ontology is rigorously vetted for domain relevance, linguistic correctness, and logical consistency, with strategic human checkpoints to guide the automated processes.
-
------
-
-## Setup and Installation
-
-To run this notebook, you will need to set up your Python environment and provide API keys for the Large Language Models.
+## 🚀 Quick Start
 
 ### Prerequisites
+- Python 3.10+
+- [uv](https://github.com/astral-sh/uv) (recommended) or pip
+- Java 17+ (for OWL reasoning with HermiT)
 
-  * Python 3.9+
-  * Jupyter Notebook or JupyterLab
+### Installation
 
-### Installation Steps
+**Using `uv` (recommended):**
+```bash
+# Install uv if you haven't
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
-1.  **Clone the repository:**
+# Clone the repository
+git clone https://github.com/ruslanmv/Agent-driven-Ontology-Repair-and-Evolution.git
+cd Agent-driven-Ontology-Repair-and-Evolution
 
-    ```bash
-    git clone https://github.com/ruslanmv/Agent-driven-Ontology-Repair-and-Evolution.git
-    cd Agent-driven-Ontology-Repair-and-Evolution
-    ```
+# Install ADORE
+uv pip install -e .
+```
 
+**Using pip:**
+```bash
+pip install -e .
+```
 
-2.  **Create a virtual environment (recommended):**
+### Configuration
 
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows: `venv\Scripts\activate`
-    ```
+Create a `.env` file in the project root:
+```bash
+# Required
+OPENAI_API_KEY=your_openai_api_key_here
 
-3.  **Install dependencies:**
+# Optional: IBM Watsonx (for alternative LLM backend)
+# WATSONX_API_KEY=your_key
+# WATSONX_URL=your_url
+# PROJECT_ID=your_project_id
+```
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+### Run Your First Cycle
 
-    A `requirements.txt` file should contain the necessary libraries:
+```bash
+# Run the Pneumonia example
+adore run --ontology examples/data/pneumonia.owl --cycles 1
 
-    ```
-    owlready2
-    langgraph
-    langchain
-    langchain-openai
-    python-dotenv
-    ```
+# Or run the example script
+python examples/pneumonia_example.py
+```
 
-4.  **API Key Configuration:**
-    This demo uses OpenAI's models . You need an OpenAI API key.
+**Expected Output:**
+```
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║     █████╗ ██████╗  ██████╗ ██████╗ ███████╗                ║
+║    ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██╔════╝                ║
+║    ███████║██║  ██║██║   ██║██████╔╝█████╗                  ║
+║    ██╔══██║██║  ██║██║   ██║██╔══██╗██╔══╝                  ║
+║    ██║  ██║██████╔╝╚██████╔╝██║  ██║███████╗                ║
+║    ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚══════╝                ║
+║                                                               ║
+║    Agent-Driven Ontology Repair and Evolution                ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
 
-      * **Local Environment:** Create a `.env` file in the root directory of your project and add your OpenAI API key:
+Configuration:
+┌─────────────┬────────────────────────────┐
+│ Ontology    │ pneumonia.owl              │
+│ Cycles      │ 1                          │
+│ Auto HITL   │ ✓                          │
+│ JSON Logs   │ ✗                          │
+└─────────────┴────────────────────────────┘
 
-        ```
-        OPENAI_API_KEY_PERSONAL="your_openai_api_key_here"
-        ```
+✓ Running cycle 1...
 
-        (Note: The code also includes placeholders for Watsonx API keys; these are not strictly necessary for the demo to run as OpenAI is used as a mock).
+Cycle Results:
+┌─────────────────────────┬─────────────────────────────────┐
+│ Proposed Axiom          │ Pneumonia ⊑ ∃causedBy.NovelVirus│
+│ Domain Assessment       │ 0.90 - Medically plausible      │
+│ Linguistic Assessment   │ 0.80 - Syntactically coherent   │
+│ Consistent              │ ✗                               │
+│ Strategy                │ ontology_evolution              │
+│ Repairs Applied         │ 1                               │
+└─────────────────────────┴─────────────────────────────────┘
 
-      * **Google Colab:** If running in Google Colab, use the `userdata` feature:
+✓ All cycles completed successfully! 🎉
+```
 
-        ```python
-        from google.colab import userdata
-        # In a code cell, set your key:
-        # userdata.set("OPENAI_API_KEY_PERSONAL", "your_openai_api_key_here")
-        # The notebook will then retrieve it using userdata.get()
-        ```
+---
 
-### Running the Notebook
+## 📖 Documentation
 
-1.  Start Jupyter Notebook or JupyterLab:
+### CLI Commands
 
-    ```bash
-    jupyter notebook
-    ```
+```bash
+# Run ontology evolution cycles
+adore run --ontology path/to/ontology.owl --cycles 3
 
-    or
+# Validate an ontology
+adore validate path/to/ontology.owl
 
-    ```bash
-    jupyter lab
-    ```
+# Show version info
+adore version
 
-2.  Open the `ADORE_pipeline.ipynb` notebook.
+# Get help
+adore --help
+```
 
-3.  Execute the cells sequentially to observe the ADORE workflow in action.
+### Programmatic API
 
-## Contributing
+```python
+from pathlib import Path
+from adore import WorkflowState, LLMService, OntologyService, WorkflowOrchestrator
 
-We welcome contributions to this project. Please feel free to open issues or submit pull requests.
+# Initialize services
+llm_service = LLMService()
+ontology_service = OntologyService()
+orchestrator = WorkflowOrchestrator(llm_service, ontology_service)
 
-## Citation
+# Run a cycle
+state = WorkflowState(cycle_id=1, ontology_path=Path("my_ontology.owl"))
+result = orchestrator.run_cycle(state)
 
-If you use this code or framework in your research, please cite our paper:
+print(f"Strategy: {result.chosen_strategy}")
+print(f"Repairs: {len(result.repair_proposals)}")
+```
+
+---
+
+## 💡 Examples
+
+### Pneumonia Ontology Evolution
+
+See `examples/pneumonia_example.py` for a complete walkthrough of evolving a medical ontology with ADORE.
+
+**Scenario**: An LLM proposes that "Pneumonia can be caused by NovelVirusX", but this conflicts with existing axioms stating viruses and bacteria are disjoint. ADORE automatically:
+1. Detects the inconsistency
+2. Proposes a repair by introducing a "Pathogen" bridging concept
+3. Weakens specific axioms to more general ones
+4. Validates the repair maintains logical consistency
+
+---
+
+## 🏗️ Architecture
+
+ADORE follows **Clean Architecture** principles:
+
+```
+src/adore/
+├── core/              # Domain models (Pydantic V2)
+├── agents/            # Specialized AI agents
+├── services/          # Business logic layer
+├── infrastructure/    # Logging, config, external deps
+├── cli/               # Beautiful Typer CLI
+└── utils/             # Shared utilities
+```
+
+**Workflow Graph:**
+```mermaid
+graph TD
+    LLMGen[LLM Generator] --> DEA[Domain Expert]
+    DEA --> LIA[Linguistic Insight]
+    LIA --> CGA[Consistency Guard]
+    CGA --> HITL1[Human-in-Loop 1]
+    HITL1 -->|Inconsistent| AWEA[Axiom Weakening]
+    HITL1 -->|Consistent| MKA[Meta-Knowledge]
+    AWEA --> HITL2[Human-in-Loop 2]
+    HITL2 --> MKA
+    MKA --> END[Complete]
+```
+
+---
+
+## 🧪 Development
+
+### Setup Development Environment
+
+```bash
+# Install with dev dependencies
+make dev-install
+
+# Run tests
+make test
+
+# Run quality checks
+make audit
+
+# Format code
+make format
+
+# Clean up
+make clean
+```
+
+### Running Tests
+
+```bash
+# Run all tests with coverage
+pytest -v --cov=src/adore --cov-report=html
+
+# Run specific test file
+pytest tests/test_agents.py -v
+```
+
+---
+
+## 🐳 Docker
+
+### Build and Run
+
+```bash
+# Build image
+make docker-build
+
+# Run container
+make docker-run
+
+# Or manually
+docker build -t adore:latest .
+docker run -it --rm -e OPENAI_API_KEY="${OPENAI_API_KEY}" adore:latest
+```
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+### Quick Contribution Guide
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Run tests and linting (`make ci`)
+5. Commit your changes (`git commit -m 'Add amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
+
+---
+
+## 📜 Citation
+
+If you use ADORE in your research, please cite:
 
 ```bibtex
 @article{monti2024adore,
@@ -185,7 +318,45 @@ If you use this code or framework in your research, please cite our paper:
 }
 ```
 
+---
 
-## License
+## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **Apache License 2.0** - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👥 Authors
+
+- **Ruslan Magana** - IBM Client Innovation Center Italy
+- **Marco Monti** - Free University of Bozen-Bolzano (UNIBZ)
+
+### Research Contributors
+- **Oliver Kutz** - Free University of Bozen-Bolzano (UNIBZ)
+- **Nicolas Troquard** - Gran Sasso Science Institute (GSSI)
+
+---
+
+## 🌐 Links
+
+- **Repository**: [github.com/ruslanmv/Agent-driven-Ontology-Repair-and-Evolution](https://github.com/ruslanmv/Agent-driven-Ontology-Repair-and-Evolution)
+- **Issues**: [Report a bug or request a feature](https://github.com/ruslanmv/Agent-driven-Ontology-Repair-and-Evolution/issues)
+- **Discussions**: [Join the conversation](https://github.com/ruslanmv/Agent-driven-Ontology-Repair-and-Evolution/discussions)
+
+---
+
+## ⭐ Star History
+
+If you find ADORE useful, please consider giving it a star! ⭐
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ruslanmv/Agent-driven-Ontology-Repair-and-Evolution&type=Date)](https://star-history.com/#ruslanmv/Agent-driven-Ontology-Repair-and-Evolution&Date)
+
+---
+
+<div align="center">
+
+**Built with ❤️ for the AI and Semantic Web communities**
+
+[⬆ Back to Top](#-adore)
+
+</div>
